@@ -5,6 +5,9 @@ lib/
 tmp/
 .lazarus-config/
 
+# Agenten Datei
+AGENTS.md
+
 # Lokale Sicherungen und Laufzeitdaten
 backup/
 *.sqlite
