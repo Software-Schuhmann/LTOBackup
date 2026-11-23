@@ -1,0 +1,33 @@
+# Lazarus/FPC erzeugte Dateien
+Debug/
+Release/
+lib/
+tmp/
+.lazarus-config/
+
+# Lokale Sicherungen und Laufzeitdaten
+backup/
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.mdb
+*.accdb
+
+# Ausführbare Dateien und Binärdateien
+*.exe
+*.dll
+LTO
+
+# Lazarus-/LaTeX-Ausgaben und lokale Sitzungsdateien
+*.lps
+*.o
+*.ppu
+*.obj
+*.log
+*.aux
+*.toc
+*.out
+*.dvi
+*.synctex.gz
+

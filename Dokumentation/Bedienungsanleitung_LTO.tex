@@ -1,0 +1,192 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\definecolor{dunkelblau}{HTML}{17365D}
+\definecolor{hellblau}{HTML}{EAF2F8}
+\hypersetup{colorlinks=true,linkcolor=dunkelblau,urlcolor=dunkelblau}
+\titleformat{\section}{\Large\bfseries\color{dunkelblau}}{\thesection}{.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{dunkelblau}}{\thesubsection}{.7em}{}
+\setlist{itemsep=3pt,topsep=4pt}
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{LTO Backup - Bedienungsanleitung}
+\rhead{Einfach erklärt}
+\cfoot{Seite \thepage}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{hellblau},frame=single,breaklines=true}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{2.2cm}
+{\Huge\bfseries\color{dunkelblau} LTO Backup\par}
+\vspace{.6cm}
+{\LARGE Bedienungsanleitung\par}
+\vspace{.5cm}
+{\large Dateien auf Band sichern und wiederherstellen\par}
+\vfill
+\begin{minipage}{.82\textwidth}
+\colorbox{hellblau}{\parbox{.94\textwidth}{\large
+Diese Anleitung führt Schritt für Schritt durch das Programm. Sie erklärt, wie Dateien ausgewählt, auf Band gespeichert und später wieder zurückgeholt werden. Die Hinweise sind bewusst einfach gehalten.}}
+\end{minipage}
+\vfill
+Version: November 2026
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Wichtige Begriffe}
+\begin{description}[style=nextline]
+\item[Quelle] Eine Datei oder ein Ordner auf dem PC oder im Netzwerk, der gesichert werden soll.
+\item[Band] Das Speichermedium im Bandlaufwerk.
+\item[Inhaltsverzeichnis oder Katalog] Eine Liste der Dateien, die auf dem Band gespeichert wurden. Das Programm speichert eine lokale Katalogdatenbank zusätzlich auf dem PC.
+\item[Sicherungsauftrag] Ein gespeicherter Name mit einer gespeicherten Auswahl von Dateien und Ordnern. Ein Auftrag speichert die Auswahl, nicht den Dateiinhalt.
+\item[Zurücksichern] Dateien vom Band auf den PC kopieren.
+\end{description}
+
+\section{Vor dem ersten Start}
+\begin{enumerate}
+\item Schließen Sie das Bandlaufwerk an und schalten Sie es ein.
+\item Legen Sie ein Band ein und warten Sie, bis das Laufwerk es vollständig geladen hat.
+\item Starten Sie \textbf{LTOBackup.exe}. Falls Windows nach einer Berechtigung fragt, bestätigen Sie diese nur, wenn Sie das Programm selbst gestartet haben.
+\item Prüfen Sie im Bereich \textbf{Bandgerät}, ob das richtige Laufwerk ausgewählt ist. Unter dem Laufwerk wird der erkannte Gerätename angezeigt.
+\item Warten Sie bei längeren Laufwerksvorgängen. Meldungen wie „Bitte warten“ zeigen, dass das Programm arbeitet.
+\end{enumerate}
+
+\section{Das Hauptfenster}
+Die Oberfläche ist in Funktionsbereiche gegliedert:
+\begin{itemize}
+\item \textbf{Quellen:} Dateien und Ordner für die Sicherung hinzufügen oder die Auswahl leeren.
+\item \textbf{Bandgerät:} Laufwerk auswählen, Bandinformationen anzeigen, Band spannen oder auswerfen.
+\item \textbf{Sicherung/Katalog:} Backup schreiben, Katalog lesen, ausgewählte Einträge zurücksichern und Band löschen.
+\item \textbf{Sicherungsaufträge:} Auswahl speichern, laden, umbenennen oder löschen.
+\item \textbf{Dateiliste links:} Zur Sicherung ausgewählte Quellen.
+\item \textbf{Bandkatalog rechts:} Auf dem Band gefundene Ordner und Dateien.
+\item \textbf{Fortschritt und Protokoll unten:} Aktuelle Tätigkeit, Fortschritt, Meldungen und Fehler.
+\end{itemize}
+Während einer laufenden Aktion sind nicht passende Schaltflächen deaktiviert. Das verhindert, dass versehentlich ein zweiter Vorgang gestartet wird.
+
+\section{Dateien und Ordner auswählen}
+\subsection{Einzelne Dateien hinzufügen}
+Klicken Sie auf \textbf{Dateien hinzufügen}. Im Dateifenster können Sie mehrere Dateien markieren. Halten Sie dazu beim Anklicken die Strg-Taste gedrückt. Bestätigen Sie die Auswahl.
+
+\subsection{Einen Ordner hinzufügen}
+Klicken Sie auf \textbf{Ordner hinzufügen}, wählen Sie den gewünschten Ordner und bestätigen Sie. Das Programm durchsucht den Ordner und nimmt seine Dateien und Unterordner in die Quellenliste auf. Bei großen Ordnern kann das etwas dauern; der Fortschritt wird angezeigt.
+
+\subsection{Auswahl kontrollieren}
+Kontrollieren Sie die linke Liste vor der Sicherung. Mit \textbf{Auswahl leeren} entfernen Sie alle Quellen aus der aktuellen Liste. Das löscht keine Dateien auf dem PC und auch keine Daten auf dem Band.
+
+\section{Ein Backup auf Band schreiben}
+\begin{enumerate}
+\item Legen Sie das gewünschte Band ein und warten Sie, bis es geladen ist.
+\item Wählen Sie die Quellen wie im vorherigen Abschnitt beschrieben.
+\item Prüfen Sie unter \textbf{Datei $\rightarrow$ Optionen ...} die Einstellung zum Anhängen (siehe Abschnitt \ref{sec:optionen}).
+\item Klicken Sie auf \textbf{Backup auf Band schreiben}.
+\item Beobachten Sie Fortschritt und aktuelle Datei. Die angezeigte Restzeit ist eine Schätzung und kann sich ändern.
+\item Warten Sie, bis eine Abschlussmeldung im Protokoll steht. Entfernen oder schalten Sie das Bandlaufwerk währenddessen nicht aus.
+\end{enumerate}
+
+\subsection{Neu schreiben oder anhängen?}
+Die Option \textbf{An vorhandenes Backup anhängen} legt den Schreibmodus fest:
+\begin{itemize}
+\item \textbf{Aus (Voreinstellung):} Das Band wird ab Anfang neu beschrieben. Bisherige Daten auf dem Band werden dadurch überschrieben.
+\item \textbf{Ein:} Die neuen Dateien werden hinter die vorhandenen Sicherungsdaten geschrieben.
+\end{itemize}
+Beim Anhängen prüft das Programm die Band-ID. Das verhindert, dass versehentlich an ein anderes Band angehängt wird. Ein älteres Backup-Format ohne Band-ID kann nicht sicher angehängt werden. Das Programm fragt in diesem Ablauf nicht zusätzlich nach. Prüfen Sie daher diese Einstellung und das richtige Band vor jedem Start sorgfältig.
+
+\subsection{Fehler beim Sichern}
+Wenn eine einzelne Quelldatei nicht lesbar ist, protokolliert das Programm den Fehler und fährt mit den weiteren Dateien fort. Am Ende werden übersprungene Dateien im Protokoll genannt. Bei einem schwerwiegenden Fehler oder Abbruch werden vollständig geschriebene Einträge soweit möglich im lokalen Katalog vermerkt; eine angefangene Datei wird nicht als vollständige Datei geführt.
+
+\section{Sicherungsaufträge verwenden}
+Ein Sicherungsauftrag merkt sich die Auswahl von Quellen. So können Sie dieselben Ordner später erneut prüfen lassen.
+\begin{enumerate}
+\item Fügen Sie die gewünschten Dateien und Ordner hinzu.
+\item Geben Sie im Bereich \textbf{Sicherungsaufträge} einen Namen ein oder klicken Sie auf \textbf{Auftrag speichern} und vergeben Sie einen Namen.
+\item Für eine spätere Sicherung wählen Sie den Auftrag in der Liste und klicken auf \textbf{Auftrag laden}.
+\item Das Programm prüft die gespeicherten Pfade im Hintergrund. Nicht mehr vorhandene oder nicht lesbare Quellen werden ausgelassen. Beim Laden werden nur neue oder geänderte Dateien für die nächste Sicherung übernommen; Ordner werden erst bei der Prüfung vor dem Backup vollständig eingelesen.
+\item Sie können Aufträge umbenennen oder löschen. Das Löschen eines Auftrags löscht weder Quelldateien noch Banddaten.
+\end{enumerate}
+Wenn sich die gespeicherten Quellen geändert haben, aktualisiert das Programm den Auftrag nach der Prüfung automatisch. Die Auftragsdatenbank liegt im Unterordner \texttt{BackupJobs} neben der Programmdatei. Sie enthält keine Kopie der gesicherten Dateien.
+
+\section{Bandkatalog lesen}
+\begin{enumerate}
+\item Legen Sie das Band ein und warten Sie, bis es geladen ist.
+\item Klicken Sie auf \textbf{Inhaltsverzeichnis lesen}. Wenn bereits ein lokaler Katalog für dieses Band vorhanden ist, wird dieser verwendet und das Einlesen geht schneller.
+\item Während des Einlesens zeigt die Fortschrittszeile den aktuellen Vorgang. Ein umfangreicher Katalog kann einige Zeit benötigen.
+\item Nach Abschluss erscheinen Ordner und Dateien im rechten Bereich \textbf{Bandkatalog}. Der Programmlauf wird zusätzlich unten protokolliert.
+\end{enumerate}
+Mit \textbf{Inh. verz. aktualisieren} können Sie den lokalen Katalog ignorieren und das Inhaltsverzeichnis vollständig neu vom Band einlesen. Der lokale SQLite-Katalog liegt standardmäßig im Unterordner \texttt{Catalogs} neben der Programmdatei. Katalogdateien beschreiben den Bandinhalt, sie ersetzen keine Datensicherung auf dem Band.
+
+\section{Dateien und Ordner zurücksichern}
+\begin{enumerate}
+\item Legen Sie das Band mit der gewünschten Sicherung ein.
+\item Klicken Sie zuerst auf \textbf{Inhaltsverzeichnis lesen}. Ohne eingelesenen Katalog kann das Programm keine Banddateien zur Auswahl anzeigen.
+\item Suchen Sie im rechten Bandkatalog die gewünschten Dateien oder Ordner.
+\item Markieren Sie mehrere Einträge mit Strg+Klick. Für einen zusammenhängenden Bereich klicken Sie den ersten Eintrag an, halten Umschalt gedrückt und klicken den letzten Eintrag an. Ordner können aufgeklappt werden, um Unterordner und Dateien zu sehen.
+\item Klicken Sie auf \textbf{Markierte Einträge zurücksichern}.
+\item Wählen Sie im erscheinenden Ordnerfenster den Zielordner auf dem PC und bestätigen Sie.
+\item Warten Sie, bis Fortschritt und Abschluss im Programm angezeigt werden. Prüfen Sie anschließend die wiederhergestellten Dateien im Zielordner.
+\end{enumerate}
+Wenn der Zielpfad nicht existiert, wählen Sie einen vorhandenen Ordner. Das Programm legt die nötige Unterordnerstruktur unterhalb des Zielordners an. Vergewissern Sie sich, dass am Ziel genügend freier Speicherplatz vorhanden ist.
+
+\section{Optionen einstellen}\label{sec:optionen}
+Öffnen Sie im Menü \textbf{Datei} den Punkt \textbf{Optionen ...}. Änderungen werden erst mit \textbf{Speichern} dauerhaft übernommen.
+\begin{description}[style=nextline]
+\item[Hardware-Kompression verwenden] Bittet das Laufwerk, Daten beim Schreiben zu komprimieren. Ob dies funktioniert, hängt vom Laufwerk und dessen Treiber ab.
+\item[An vorhandenes Backup anhängen] Schaltet zwischen Anhängen und neuem Schreiben ab Bandanfang um. Standardmäßig ist die Option ausgeschaltet.
+\item[Dateiinhalte nach dem Schreiben byteweise prüfen] Liest die geschriebenen Daten nach dem Backup erneut vom Band und vergleicht sie blockweise mit den Originaldateien. Die Prüfung verlängert die Sicherung deutlich und ist standardmäßig ausgeschaltet.
+\item[Nach erfolgreichem Backup PC herunterfahren] Nach erfolgreichem Schreiben wird das Band ausgeworfen. Windows fährt nur herunter, wenn der Auswurf erfolgreich gemeldet wurde. Bei einem Fehler wird nicht heruntergefahren.
+\end{description}
+
+\section{Automatische Sicherung mit der Windows-Aufgabenplanung}
+Das Programm kann mit dem Namen eines gespeicherten Sicherungsauftrags gestartet werden. Beispiel:
+\begin{lstlisting}
+"C:\textbackslash Projekte\textbackslash LTO\textbackslash Release\textbackslash win64\textbackslash LTOBackup.exe" "Taegliche Sicherung"
+\end{lstlisting}
+Verwenden Sie den tatsächlichen vollständigen Pfad Ihrer Programmdatei. In der Aufgabenplanung tragen Sie den Programmpfad bei \textbf{Programm/Skript} und den Auftragsnamen bei \textbf{Argumente hinzufügen} ein, zum Beispiel:
+\begin{lstlisting}
+"Taegliche Sicherung"
+\end{lstlisting}
+Als \textbf{Starten in}-Ordner empfiehlt sich der Ordner, in dem die EXE liegt. Unter \textbf{Allgemein} können Sie \textbf{Mit höchsten Privilegien ausführen} aktivieren. Das erlaubt dem Task Scheduler, die Aufgabe erhöht ohne UAC-Bestätigungsdialog zu starten. Für eine sichtbare Programmoberfläche wählen Sie \textbf{Nur ausführen, wenn der Benutzer angemeldet ist}. Je nach Windows- und Laufwerkskonfiguration muss das verwendete Benutzerkonto Zugriff auf das Bandlaufwerk und die Quelldateien haben.
+
+Beim Start sucht das Programm exakt nach diesem Auftragsnamen in der Auftragsdatenbank. Wird der Auftrag nicht gefunden oder kann er nicht geladen werden, erscheint ein Hinweis und das Programm bleibt normal geöffnet. Ist keine Sicherungsdatei neu oder geändert, wird ebenfalls informiert und nichts geschrieben. Bei erfolgreichem Laden startet die Sicherung automatisch. Der gewählte Modus (anhängen oder Band neu beschreiben) gilt auch für diesen automatischen Start.
+
+\section{Bandinfo, Auswerfen und Löschen}
+\begin{itemize}
+\item \textbf{Bandinfo:} Zeigt technische Informationen zum Laufwerk und Band. Kapazitäts- und Restwerte hängen auch von Treiber und Bandzustand ab.
+\item \textbf{Spannen:} Sendet einen Spannbefehl an das Laufwerk. Manche Laufwerke unterstützen ihn nicht; das bedeutet nicht automatisch, dass das Band defekt ist.
+\item \textbf{Band auswerfen:} Das Band wird zurückgespult und ausgeworfen. Warten Sie auf die Meldung „Band ausgeworfen“.
+\item \textbf{Band löschen:} Löscht den Inhalt des Bandes vollständig. Die Aktion ist nicht rückgängig zu machen. Der lokale Katalog für dieses Band wird bei erfolgreichem Löschen ebenfalls entfernt.
+\end{itemize}
+
+\section{Was tun, wenn etwas nicht funktioniert?}
+\begin{description}[style=nextline]
+\item[Das Band wird nicht erkannt] Prüfen Sie Stromversorgung, Verbindung und Laufwerksanzeige. Legen Sie das Band erneut ein und warten Sie auf den Ladevorgang. Wählen Sie danach das richtige Laufwerk aus.
+\item[Der Katalog ist leer] Lesen Sie das Inhaltsverzeichnis mit eingelegtem, geladenem Band erneut ein. Prüfen Sie, ob es das Band ist, auf das die Sicherung geschrieben wurde.
+\item[Eine Quelle fehlt] Prüfen Sie, ob Netzlaufwerk oder Netzwerk erreichbar ist und ob der verwendete Benutzer Zugriff auf den Pfad hat.
+\item[Die Sicherung dauert lange] Große Dateien und langsame Bandlaufwerke benötigen Zeit. Die Fortschrittszeile zeigt die aktuelle Datei. Lassen Sie das Programm weiterarbeiten.
+\item[Es erscheint ein Fehler] Notieren Sie die vollständige Meldung und prüfen Sie das Protokoll unten. Beenden Sie das Programm nicht, solange ein Schreib- oder Lesevorgang läuft.
+\end{description}
+
+\section{Gute Gewohnheiten}
+\begin{itemize}
+\item Prüfen Sie vor dem Schreiben immer das ausgewählte Band und die Option zum Anhängen.
+\item Beschriften Sie Bänder eindeutig und bewahren Sie sie geschützt auf.
+\item Testen Sie gelegentlich eine Rücksicherung einzelner Dateien. Eine Sicherung ist erst dann verlässlich, wenn die Wiederherstellung funktioniert.
+\item Bewahren Sie wichtige Daten nicht nur auf einem einzigen Band auf.
+\item Lassen Sie das Programm während eines Bandvorgangs geöffnet und schalten Sie das Laufwerk nicht aus.
+\end{itemize}
+
+\vfill
+\begin{center}\small Ende der Anleitung\end{center}
+\end{document}

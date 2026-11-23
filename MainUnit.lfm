@@ -1,0 +1,484 @@
+object MainForm: TMainForm
+  Left = 250
+  Height = 739
+  Top = 120
+  Width = 1086
+  Caption = 'Datensicherung LTO'
+  ClientHeight = 739
+  ClientWidth = 1086
+  Menu = MainMenu1
+  Position = poScreenCenter
+  LCLVersion = '5.0.1.0'
+  OnCreate = FormCreate
+  object TopPanel: TPanel
+    Left = 0
+    Height = 248
+    Top = 0
+    Width = 1086
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 248
+    ClientWidth = 1086
+    TabOrder = 0
+    object SourcesActionPanel: TPanel
+      Left = -24
+      Height = 64
+      Top = 184
+      Width = 563
+      ClientHeight = 64
+      ClientWidth = 563
+      ParentColor = False
+      TabOrder = 0
+      object AddFolderButton: TButton
+        Left = 154
+        Height = 28
+        Top = 0
+        Width = 114
+        Caption = 'Ordner hinzufügen'
+        TabOrder = 0
+        OnClick = AddFolderClick
+      end
+      object AddFilesButton: TButton
+        Left = 32
+        Height = 28
+        Top = 0
+        Width = 112
+        Caption = 'Dateien hinzufügen'
+        TabOrder = 1
+        OnClick = AddFilesClick
+      end
+      object ClearSourcesButton: TButton
+        Left = 278
+        Height = 28
+        Top = 0
+        Width = 104
+        Caption = 'Auswahl leeren'
+        TabOrder = 2
+        OnClick = ClearSourcesClick
+      end
+      object Label1: TLabel
+        Left = 24
+        Height = 17
+        Top = 40
+        Width = 189
+        Caption = 'Zu sichernde Dateien (Quellen):'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Segoe UI Semibold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = Label1Click
+      end
+      object WriteBackupButton: TButton
+        Left = 392
+        Height = 28
+        Top = 0
+        Width = 156
+        Caption = 'Backup auf Band schreiben'
+        Color = clLime
+        Font.CharSet = ANSI_CHARSET
+        Font.Name = 'Segoe UI Semibold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+        OnClick = WriteBackupClick
+      end
+    end
+    object TapeActionPanel: TPanel
+      Left = 536
+      Height = 136
+      Top = 40
+      Width = 552
+      ClientHeight = 136
+      ClientWidth = 552
+      DoubleBuffered = False
+      ParentBackground = False
+      ParentBidiMode = False
+      ParentColor = False
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 1
+      OnClick = TapeActionPanelClick
+      object TapeDeviceLabel: TLabel
+        Left = 16
+        Height = 15
+        Top = 48
+        Width = 57
+        Caption = 'Bandgerät:'
+        ParentColor = False
+      end
+      object TapeDeviceEdit: TComboBox
+        Left = 80
+        Height = 23
+        Top = 48
+        Width = 224
+        ItemHeight = 15
+        Style = csDropDownList
+        TabOrder = 0
+        OnChange = TapeDeviceEditChange
+      end
+      object TapeInfoButton: TButton
+        Left = 13
+        Height = 28
+        Top = 90
+        Width = 80
+        Caption = 'Bandinfo'
+        TabOrder = 1
+        OnClick = TapeInfoClick
+      end
+      object TensionButton: TButton
+        Left = 112
+        Height = 28
+        Top = 90
+        Width = 72
+        Caption = 'Spannen'
+        TabOrder = 2
+        OnClick = TensionClick
+      end
+      object EjectButton: TButton
+        Left = 203
+        Height = 28
+        Top = 90
+        Width = 100
+        Caption = 'Band auswerfen'
+        TabOrder = 3
+        OnClick = EjectClick
+      end
+      object Label2: TLabel
+        Left = 16
+        Height = 21
+        Top = 8
+        Width = 191
+        Caption = 'Laufwerk: wird ermittelt ...'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Name = 'Segoe UI Semibold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Panel2: TPanel
+        Left = 388
+        Height = 30
+        Top = 87
+        Width = 103
+        BevelColor = clBackground
+        ClientHeight = 30
+        ClientWidth = 103
+        Color = clRed
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 4
+        object EraseButton: TButton
+          AnchorSideLeft.Control = Panel2
+          AnchorSideLeft.Side = asrCenter
+          AnchorSideTop.Control = Panel2
+          AnchorSideTop.Side = asrCenter
+          AnchorSideRight.Side = asrCenter
+          AnchorSideBottom.Side = asrCenter
+          Left = 2
+          Height = 26
+          Top = 2
+          Width = 98
+          Anchors = [akTop, akLeft, akRight]
+          Caption = 'Band löschen'
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'Arial Narrow'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = EraseClick
+        end
+      end
+    end
+    object BackupActionPanel: TPanel
+      Left = 541
+      Height = 72
+      Top = 176
+      Width = 544
+      ClientHeight = 72
+      ClientWidth = 544
+      DoubleBuffered = True
+      ParentBackground = False
+      ParentColor = False
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 2
+      object ReadCatalogButton: TButton
+        Left = 7
+        Height = 28
+        Hint = 'Liest Inhalt des Band aus gespeichert DB-Verzeichnis'
+        Top = 8
+        Width = 146
+        Caption = 'Inhaltsverzeichnis lesen'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnClick = ReadCatalogClick
+      end
+      object RefreshCatalogButton: TButton
+        Left = 168
+        Height = 28
+        Hint = 'Liest Verzeichnis von Band neu aus und speichert es in die DB'
+        Top = 8
+        Width = 135
+        Caption = 'Inh. verz. aktualisieren'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        OnClick = RefreshCatalogClick
+      end
+      object RestoreButton: TButton
+        Left = 328
+        Height = 28
+        Top = 8
+        Width = 184
+        Caption = 'Markierte Einträge zurücksichern'
+        Font.CharSet = ANSI_CHARSET
+        Font.Name = 'Segoe UI Semibold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 1
+        OnClick = RestoreClick
+      end
+      object Label4: TLabel
+        Left = 8
+        Height = 17
+        Top = 48
+        Width = 149
+        Caption = 'Band Inhaltsverzeichnis :'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Segoe UI Semibold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object JobsActionPanel: TPanel
+      Left = 0
+      Height = 136
+      Top = 40
+      Width = 539
+      ClientHeight = 136
+      ClientWidth = 539
+      TabOrder = 3
+      OnClick = JobsActionPanelClick
+      object DeleteJobButton: TButton
+        Left = 160
+        Height = 25
+        Top = 56
+        Width = 146
+        Caption = 'Auftrag löschen'
+        TabOrder = 0
+        OnClick = DeleteJobClick
+      end
+      object JobNameCombo: TComboBox
+        Left = 8
+        Height = 23
+        Top = 24
+        Width = 298
+        ItemHeight = 15
+        TabOrder = 1
+        OnChange = JobNameComboChange
+      end
+      object SaveJobButton: TButton
+        Left = 9
+        Height = 25
+        Top = 88
+        Width = 146
+        Caption = 'Auftrag speichern'
+        TabOrder = 2
+        OnClick = SaveJobClick
+      end
+      object LoadJobButton: TButton
+        Left = 8
+        Height = 25
+        Top = 56
+        Width = 146
+        Caption = 'Auftrag laden'
+        TabOrder = 3
+        OnClick = LoadJobClick
+      end
+      object RenameJobButton: TButton
+        Left = 160
+        Height = 25
+        Top = 88
+        Width = 146
+        Caption = 'Auftrag umbenennen'
+        TabOrder = 4
+        OnClick = RenameJobClick
+      end
+      object Label3: TLabel
+        Left = 8
+        Height = 21
+        Top = 0
+        Width = 149
+        Caption = 'Sicherungsaufträge'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object Panel1: TPanel
+      Left = 0
+      Height = 34
+      Top = 0
+      Width = 1086
+      Align = alTop
+      Caption = 'LTO - Backup'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -19
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 4
+    end
+  end
+  object SourcePanel: TPanel
+    Left = 0
+    Height = 341
+    Top = 248
+    Width = 540
+    Align = alLeft
+    Caption = 'Für Backup ausgewählt'
+    ClientHeight = 341
+    ClientWidth = 540
+    TabOrder = 1
+    object SourceTitle: TLabel
+      Left = 8
+      Height = 15
+      Top = 4
+      Width = 122
+      Caption = 'Für Backup ausgewählt'
+      ParentColor = False
+    end
+    object SourceTree: TTreeView
+      Left = 1
+      Height = 339
+      Top = 1
+      Width = 538
+      Align = alClient
+      BackgroundColor = clInfoBk
+      BorderStyle = bsNone
+      Color = clInfoBk
+      ReadOnly = True
+      TabOrder = 0
+      Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+      OnMouseDown = SourceTreeMouseDown
+    end
+  end
+  object CatalogPanel: TPanel
+    Left = 540
+    Height = 341
+    Top = 248
+    Width = 546
+    Align = alClient
+    Caption = 'Inhaltsverzeichnis auf Band'
+    ClientHeight = 341
+    ClientWidth = 546
+    TabOrder = 2
+    object CatalogTitle: TLabel
+      Left = 8
+      Height = 15
+      Top = 4
+      Width = 139
+      Caption = 'Bandkatalog auf \\.\TAPE0'
+      ParentColor = False
+    end
+    object CatalogTree: TTreeView
+      Left = 1
+      Height = 339
+      Top = 1
+      Width = 544
+      Align = alClient
+      BackgroundColor = clInfoBk
+      BorderStyle = bsNone
+      Color = clInfoBk
+      MultiSelectStyle = [msControlSelect, msShiftSelect]
+      ReadOnly = True
+      TabOrder = 0
+      Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+      OnMouseDown = CatalogTreeMouseDown
+    end
+  end
+  object BottomPanel: TPanel
+    Left = 0
+    Height = 150
+    Top = 589
+    Width = 1086
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 150
+    ClientWidth = 1086
+    TabOrder = 3
+    object ProgressLabel: TLabel
+      Left = 0
+      Height = 17
+      Top = 0
+      Width = 1086
+      Align = alTop
+      Caption = 'Bereit'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object ProgressBar: TProgressBar
+      Left = 0
+      Height = 18
+      Top = 17
+      Width = 1086
+      Align = alTop
+      TabOrder = 0
+    end
+    object LogMemo: TMemo
+      Left = 0
+      Height = 115
+      Top = 35
+      Width = 1086
+      Align = alClient
+      ReadOnly = True
+      ScrollBars = ssAutoBoth
+      TabOrder = 1
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 1040
+    Top = 4
+    object FileMenuItem: TMenuItem
+      Caption = 'Datei'
+      object OptionsMenuItem: TMenuItem
+        Caption = 'Optionen ...'
+        OnClick = OptionsMenuClick
+      end
+      object ExitMenuItem: TMenuItem
+        Caption = 'Beenden'
+        OnClick = ExitMenuClick
+      end
+    end
+  end
+end
