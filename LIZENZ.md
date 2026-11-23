@@ -8,7 +8,7 @@ Diese Software wird unter einer dualen, quelloffenen, aber proprietären Lizenz 
 
 ## 2. Kommerzielle Nutzung
 * Jede Nutzung dieser Software (oder von Teilen davon) innerhalb eines kommerziellen Umfelds, für geschäftliche Zwecke, durch Unternehmen, Freiberufler oder zur Erzielung von Einnahmen ist **kostenpflichtig**.
-* Für die kommerzielle Nutzung muss vorab eine kommerzielle Lizenz zum Preis von **29,00 EUR (einmalig)** erworben werden.
+* Für die kommerzielle Nutzung muss vorab eine kommerzielle Lizenz zum Preis von **39,00 EUR (einmalig)** erworben werden.
 * Eine kommerzielle Lizenz kann unter folgendem Link erworben werden: [HIER LINK ZU GUMROAD/LEMON SQUEEZY/ETC. EINFÜGEN]
 
 ## 3. Weiterverbreitung
