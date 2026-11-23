@@ -42,7 +42,7 @@ Der Auftrag wird aus der lokalen SQLite-Auftragsdatenbank geladen. Der eingestel
 
 Beim Anhängen wird die Band-ID geprüft. Ein älteres Backup-Format ohne Band-ID kann nicht sicher erweitert werden.
 
-## Bauen
+## Erzeugen
 
 Der Release-Build wird im Projektverzeichnis mit Lazarus erzeugt:
 
