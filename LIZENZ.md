@@ -29,7 +29,7 @@ This software is provided under a dual, source-available, proprietary license. B
 
 ## 2. Commercial Use
 * Any use of this software (or parts of it) within a commercial environment, for business purposes, by companies, freelancers, or to generate revenue **requires a paid license**.
-* For commercial use, a commercial license must be purchased in advance for a one-time fee of **29.00 EUR**.
+* For commercial use, a commercial license must be purchased in advance for a one-time fee of **39.00 EUR**.
 * A commercial license can be purchased at the following link: [INSERT LINK TO GUMROAD/LEMON SQUEEZY/ETC. HERE]
 
 ## 3. Redistribution
