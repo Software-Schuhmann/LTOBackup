@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/35278569/README.md)
-# LTO Backup
+# LTO Band Backup 
 
 LTO Backup ist ein Windows-Programm zum Sichern und Wiederherstellen von Dateien und Ordnern auf Bandlaufwerken. Es bietet eine grafische Oberfläche, einen lokalen Katalog und speicherbare Sicherungsaufträge.
 
