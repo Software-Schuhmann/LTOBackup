@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/35278569/README.md)
-# LTO Backup
+# LTO Band Backup 
 
 LTO Backup ist ein Windows-Programm zum Sichern und Wiederherstellen von Dateien und Ordnern auf Bandlaufwerken. Es bietet eine grafische Oberfläche, einen lokalen Katalog und speicherbare Sicherungsaufträge.
 
@@ -14,7 +14,6 @@ LTO Backup ist ein Windows-Programm zum Sichern und Wiederherstellen von Dateien
 - Katalogdaten lokal in einer SQLite-Datenbank verwalten
 - Sicherungsaufträge speichern, laden, umbenennen und löschen
 - Gespeicherte Aufträge im Hintergrund prüfen und automatisch auf geänderte Quellen aktualisieren
-- Beim nächsten Backup nur neue oder geänderte Dateien aus einem geladenen Auftrag übernehmen
 - Fortschritt, aktuelle Datei und geschätzte Restzeit anzeigen
 - Fehlerhafte oder nicht lesbare Quelldateien protokollieren und überspringen
 - Hardware-Kompression und byteweise Abschlussprüfung optional aktivieren
@@ -59,7 +58,7 @@ Release\win64\LTOBackup.exe
 ## Voraussetzungen
 
 - Windows
-- Unterstütztes und korrekt eingerichtetes Bandlaufwerk mit passendem Treiber
+- Unterstütztes und korrekt eingerichtetes Bandlaufwerk mit passendem Treiber (SCSI)
 - Schreib- und Leserechte für die ausgewählten Quelldateien und Zielordner
 - `sqlite3.dll` neben der ausführbaren Datei
 - Für automatisierte Sicherungen: gespeicherter Sicherungsauftrag und entsprechend eingerichtete Windows-Aufgabe
