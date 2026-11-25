@@ -89,7 +89,7 @@ Diese Software wird unter einer dualen, quelloffenen, aber proprietären Lizenz 
 ## 2. Kommerzielle Nutzung
 * Jede Nutzung dieser Software (oder von Teilen davon) innerhalb eines kommerziellen Umfelds, für geschäftliche Zwecke, durch Unternehmen, Freiberufler oder zur Erzielung von Einnahmen ist **kostenpflichtig**.
 * Für die kommerzielle Nutzung muss vorab eine kommerzielle Lizenz zum Preis von **39,00 EUR (einmalig)** erworben werden.
-* Eine kommerzielle Lizenz kann unter folgendem Link erworben werden: [HIER LINK ZU GUMROAD/LEMON SQUEEZY/ETC. EINFÜGEN]
+* Eine kommerzielle Lizenz kann unter folgendem Link erworben werden: info@softwareschuhmann.de
 
 ## 3. Weiterverbreitung
 * Es ist nicht gestattet, diesen Quellcode als eigenen Dienst oder als eigenes Produkt (weder kostenlos noch kostenpflichtig) weiterzuverkaufen oder zu vertreiben, ohne dass die Endnutzer an diese Lizenz gebunden sind.
@@ -110,7 +110,7 @@ This software is provided under a dual, source-available, proprietary license. B
 ## 2. Commercial Use
 * Any use of this software (or parts of it) within a commercial environment, for business purposes, by companies, freelancers, or to generate revenue **requires a paid license**.
 * For commercial use, a commercial license must be purchased in advance for a one-time fee of **39.00 EUR**.
-* A commercial license can be purchased at the following link: [INSERT LINK TO GUMROAD/LEMON SQUEEZY/ETC. HERE]
+* A commercial license can be purchased at the following link: info@softwareschuhmann.de
 
 ## 3. Redistribution
 * You are not allowed to resell or redistribute this source code as your own standalone service or product (neither free nor paid) unless the end-users are bound by this exact license.
