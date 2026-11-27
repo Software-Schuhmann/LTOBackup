@@ -1,7 +1,19 @@
-[README.md](https://github.com/user-attachments/files/35278569/README.md)
-# LTO Band Backup 
+# LTOBackup – Windows-Software für Backups auf LTO-Bandlaufwerke
 
-LTO Backup ist ein Windows-Programm zum Sichern und Wiederherstellen von Dateien und Ordnern auf Bandlaufwerken. Es bietet eine grafische Oberfläche, einen lokalen Katalog und speicherbare Sicherungsaufträge.
+LTOBackup ist ein Windows-Programm zum Sichern und Wiederherstellen von Dateien und Ordnern auf LTO-Bandlaufwerken. Die Anwendung bietet eine grafische Oberfläche, einen lokalen Bandkatalog und speicherbare Sicherungsaufträge.
+
+**Aktuelle Version:** [LTOBackup-Portable-v1.0.0-win64](https://github.com/Software-Schuhmann/LTOBackup/releases/latest)
+
+## Kompatibilität
+
+- Entwickelt und getestet mit LTO-2-Bandlaufwerken
+- Andere LTO-Generationen und Windows-kompatible Bandlaufwerke können möglicherweise verwendet werden, sind aber derzeit nicht vollständig verifiziert
+- Voraussetzung ist ein Windows-Tape-Treiber, über den das Laufwerk als Tape-Gerät erreichbar ist
+- Das Programm verwendet feste 64-KiB-Blöcke. Das Laufwerk und der Treiber müssen diese Blockgröße unterstützen
+- Die Anwendung verwendet ein eigenes Backup-Format und kann keine fremden Formate wie LTFS, TAR oder Backup-Sätze anderer Programme lesen
+- Die Kompatibilität hängt vom Laufwerk, dem Band, dem Treiber, der Schnittstelle und der Windows-Konfiguration ab
+
+Für produktive Daten sollte die Kombination aus Laufwerk und Band zunächst mit einem Test-Backup, einer Rücksicherung und der optionalen byteweisen Abschlussprüfung überprüft werden.
 
 ## Funktionen
 
@@ -58,10 +70,20 @@ Release\win64\LTOBackup.exe
 ## Voraussetzungen
 
 - Windows
-- Unterstütztes und korrekt eingerichtetes Bandlaufwerk mit passendem Treiber (SCSI)
+- Getestetes oder kompatibles Bandlaufwerk mit passendem Windows-Tape-Treiber
 - Schreib- und Leserechte für die ausgewählten Quelldateien und Zielordner
 - `sqlite3.dll` neben der ausführbaren Datei
 - Für automatisierte Sicherungen: gespeicherter Sicherungsauftrag und entsprechend eingerichtete Windows-Aufgabe
+
+## Installation und Verwendung
+
+1. Die aktuelle portable Version aus den [Releases](https://github.com/Software-Schuhmann/LTOBackup/releases/latest) herunterladen.
+2. Das Archiv in einen eigenen Programmordner entpacken.
+3. Prüfen, dass `LTOBackup.exe` und `sqlite3.dll` im selben Ordner liegen.
+4. Das Bandlaufwerk unter Windows installieren und das Band vollständig laden.
+5. LTOBackup starten, Quelldateien auswählen und einen Sicherungsauftrag erstellen.
+
+Vor dem ersten produktiven Einsatz sollte eine Datei testweise gesichert und wiederhergestellt werden. Die Anwendung ersetzt keine zusätzliche Sicherung auf einem zweiten Medium.
 
 ## Daten und Kataloge
 
@@ -72,9 +94,11 @@ Die Katalog- und Auftragsdatenbanken werden in folgenden Unterordnern neben der 
 
 Sie enthalten Verwaltungsinformationen und ersetzen nicht die eigentliche Sicherung auf Band.
 
-## Hinweis
+## Technische Hinweise
 
 Das Programm verwendet derzeit Windows-spezifische Tape- und Gerätefunktionen. Eine Linux-Kompilierung ist mit dem aktuellen Quellstand nicht ohne Portierung der Hardware-Schicht möglich.
+
+Die Banddaten werden nicht als allgemeines Austauschformat geschrieben. LTOBackup kann daher nur Sicherungen lesen, die mit dem eigenen Backup-Format von LTOBackup erstellt wurden.
 
 Eine ausführliche Schritt-für-Schritt-Anleitung befindet sich in [`Bedienungsanleitung_LTO.pdf`](Bedienungsanleitung_LTO.pdf).
 
